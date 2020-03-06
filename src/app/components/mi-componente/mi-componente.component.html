@@ -1,0 +1,14 @@
+<h1>{{titulo}}</h1> 
+<h2>{{year}}</h2>
+<p>{{comentario}}</p>
+<hr />
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem itaque consequuntur minima amet voluptates hic sapiente, minus iure beatae doloribus quia excepturi corporis? Cumque vero, corporis omnis magnam labore eaque!</p>
+<hr />
+
+<button (click)="ocultarpeliculas()">OCULTAR PELICULAS</button>
+
+<div *ngIf="mostrarpeliculas" > <!-- el componenete peliculas se va a mostrar si la variable msotrar peliculas es true-->
+    <app-peliculas></app-peliculas>
+</div>
+
+<app-pruebas></app-pruebas>
