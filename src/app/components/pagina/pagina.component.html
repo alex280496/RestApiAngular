@@ -1,0 +1,12 @@
+<h1 class="subheader">Pagina de pruebas</h1>
+
+<div *ngIf="nombre && apellidos"> <!-- este if permite verfificar que existen datos pasados por parametros-->
+    <h2> Mi nombre es : {{nombre}}</h2>
+    <h3> Mis apellidos son: {{apellidos}}</h3>
+</div>
+
+<div *ngIf="!nombre || !apellidos">
+    <h2>No hay Parametros por la Url</h2>
+</div>
+
+<button (click)="redireccion()">Muestrame los parametros de la URL</button>

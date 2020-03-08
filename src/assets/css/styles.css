@@ -79,8 +79,10 @@ body{
     color: #444;
     transition: 300ms all;
 }
-#menu ul li a:hover{
-    color: #e40f0f;
+#menu ul li a:hover,
+.active
+{
+    color: #e40f0f !important;
 }
 #slider{
     
