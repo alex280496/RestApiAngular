@@ -1,42 +1,49 @@
+<app-slider [nombre]="'Peliculas'"
+            [size]="'small'">
 
-<h1 class="subheader">Peliculas</h1>
-<h2>{{titulo}}</h2>
+</app-slider>
+<!-- voy a pasar una variable desde el componente padre que es este al componente slider que es el hijo-->
 
-<button (click)="cambiarTitulo()">Pulsame</button>
-<hr>
-<h2> Primera Pelicula</h2>
-{{peliculas[0].titulo}}
-
-<hr/>
-<h2>Numero de Peliculas</h2>
-<div *ngIf="peliculas.length<=3">
-    Hay pocas peliculas
-</div>
-
-<div *ngIf="peliculas.length>3">
-    Hay muchas peliculas
-</div>
-{{peliculas.length}}
-<hr>
-<h2 class="subheader">Listado de peliculas</h2>
-
-<div id="articles" *ngIf="peliculas">
-    <article class="article-item" *ngFor="let pelicula of peliculas; let i=index;"> <!-- se va generadno una variable pelicula cada que va recorriendo el array -->
-        <!--let i=index permite ontener el valor de index de la pelicula-->
-        <div class="image-wrap">
-            <img src="{{pelicula.image}}" alt="{{pelicula.titulo}}">
+<div class="center">
+    <section id="content">
+        <h1 class="subheader">Peliculas</h1>
+        <div id="favorita" *ngIf="favorita">
+            <h2 class="subheader">Pelicula Favorita</h2>
+            <h3>{{favorita.titulo}}</h3>
+            <h4>{{favorita.year}}</h4>
+            
         </div>
-        <h2>{{pelicula.titulo}}</h2>
-        <span class="date">
-            hace 5 minutos
-        </span>
-        <span class="year"   [ngClass]="{
-                              'year-green':pelicula.year>2018,
-                              'year-red':pelicula.year<2018
-                           }">
-            {{pelicula.year}}
-        </span>
-        <a href="#">Leer mas</a>
-        <div class="clearfix"></div> <!-- para que el contenido nose suporponga, borra los flotados-->
-    </article>
+        <!-- 
+        <h2>{{titulo}}</h2>
+
+        <button (click)="cambiarTitulo()">Pulsame</button>
+        <hr>
+        <h2> Primera Pelicula</h2>
+        {{peliculas[0].titulo}}
+
+        <hr/>
+        <h2>Numero de Peliculas</h2>
+        <div *ngIf="peliculas.length<=3">
+            Hay pocas peliculas
+        </div>
+
+        <div *ngIf="peliculas.length>3">
+            Hay muchas peliculas
+        </div>
+        {{peliculas.length}}
+        <hr>
+    
+        <h2 class="subheader">Listado de peliculas</h2>
+    -->
+        <div id="articles" *ngIf="peliculas">
+           <div *ngFor="let pelicula of peliculas; let i=index;">
+                <app-pelicula 
+                 [pelicula]="pelicula" 
+                 (MarcarFavorita)="mostrarfavorita($event)"
+                ></app-pelicula> <!-- estoy pasando la variable pelicula a la vista atrves de Input-->
+           </div>
+           
+        </div>
+    </section>
+    <app-sidebar></app-sidebar>
 </div>

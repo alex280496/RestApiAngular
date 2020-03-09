@@ -1,0 +1,21 @@
+<article class="article-item">
+    <!-- se va generadno una variable pelicula cada que va recorriendo el array -->
+    <!--let i=index permite ontener el valor de index de la pelicula-->
+    <div class="image-wrap">
+        <img src="{{pelicula.image}}" alt="{{pelicula.titulo}}">
+    </div>
+    <h2>{{pelicula.titulo}}</h2>
+    <span class="date">
+        hace 5 minutos
+    </span>
+    <span class="year" [ngClass]="{
+                      'year-green':pelicula.year>2018,
+                      'year-red':pelicula.year<2018
+                   }">
+        {{pelicula.year}}
+    </span>
+    <a href="#">Leer mas</a>
+    <button (click)="seleccionar($event,pelicula)">Seleccionar como favorita</button>
+    <div class="clearfix"></div>
+    <!-- para que el contenido nose suporponga, borra los flotados-->
+</article>

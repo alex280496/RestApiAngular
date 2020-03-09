@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  homeText='Bienvenido a mi pagina web Resposiva......'
   title = 'GestionArticulosAngular';
 }
