@@ -4,6 +4,8 @@ import {routing,appRoutingProviders} from './app.routing'; // son las dos consta
 //routing dse debe cargar como modulo en la parte de imports
 //appRoutingProviders se debe caragr con servicio (providers)
 import {FormsModule} from '@angular/forms'; // para que funcionen los formularios en angular
+import {HttpClientModule} from '@angular/common/http'; // para que funcionen las peticiones ajax en angualr
+
 
 import { AppComponent } from './app.component';
 import {MiComponente} from './components/mi-componente/mi-componente.component';
@@ -42,8 +44,9 @@ import {EsParPipe} from './pipes/espar.pipe';
   imports: [
     BrowserModule,
     routing,
-    FormsModule //los imports son los modulos que cargamos en angular hay que cargarlos para que
+    FormsModule, //los imports son los modulos que cargamos en angular hay que cargarlos para que
               //funcionen globalmente
+    HttpClientModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]
