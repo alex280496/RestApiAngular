@@ -9,8 +9,10 @@
         <h1 class="subheader">Peliculas</h1>
         <div id="favorita" *ngIf="favorita">
             <h2 class="subheader">Pelicula Favorita</h2>
-            <h3>{{favorita.titulo}}</h3>
-            <h4>{{favorita.year}}</h4>
+            <h3>{{favorita.titulo |uppercase}}</h3> <!-- |uppercase es un pipe para poner en mayuscula-->
+            <h4>{{favorita.year |espar}}</h4>
+
+            {{fecha |date:'dd/MM/yyyy'}}
             
         </div>
         <!-- 

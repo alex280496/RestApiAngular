@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {routing,appRoutingProviders} from './app.routing'; // son las dos constantes del archivo de rutas
-
 //routing dse debe cargar como modulo en la parte de imports
 //appRoutingProviders se debe caragr con servicio (providers)
+import {FormsModule} from '@angular/forms'; // para que funcionen los formularios en angular
+
 import { AppComponent } from './app.component';
 import {MiComponente} from './components/mi-componente/mi-componente.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
@@ -18,6 +19,7 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { PaginaComponent } from './components/pagina/pagina.component';
 import { ErrorComponent } from './components/error/error.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
+import {EsParPipe} from './pipes/espar.pipe';
 
 @NgModule({
   declarations: [
@@ -34,11 +36,14 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
     FormularioComponent,
     PaginaComponent,
     ErrorComponent,
-    PeliculaComponent
+    PeliculaComponent,
+    EsParPipe
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    FormsModule //los imports son los modulos que cargamos en angular hay que cargarlos para que
+              //funcionen globalmente
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

@@ -1,14 +1,72 @@
+<app-slider [nombre]="'Formulario'" [size]="'small'">
 
-<app-slider [nombre]="'Formulario'"
-            [size]="'small'"
-    >
+</app-slider>
+<!-- voy a pasar una variable desde el componente padre que es este al componente slider que es el hijo-->
 
-    </app-slider>
-    <!-- voy a pasar una variable desde el componente padre que es este al componente slider que es el hijo-->
-    
-    <div class="center">
-        <section id="content">
-                <h1 class="subheader">Formulario</h1>
-        </section>
-        <app-sidebar></app-sidebar>
-    </div>
+<div class="center">
+    <section id="content">
+        <h1 class="subheader">Formulario</h1>
+        <!--
+        <div id="datosformulario" *ngIf="user.nombre">
+            <ul>
+                <li>
+                    {{user.nombre}}
+                </li>
+                <li>
+                    {{user.apellidos}}
+                </li>
+                <li>
+                    {{user.bio}}
+                </li>
+                <li>
+                    {{user.genero}}
+                </li>
+            </ul>
+        </div> -->
+        
+        <form class="mid-form"  #userForm="ngForm" (ngSubmit)="onSubmit()"> <!-- (ngSubmit)="onSubmit()" hace que cuando demos click a enviar formuario llama a ese metodo onSubmit que esta en el componente-->
+            <div class="form-group">
+                <label for="nombre">Nombre </label>
+                <input type="text" name="nombre"  #nombre="ngModel" [(ngModel)]="user.nombre" 
+                required pattern="[a-zA-Z]+"/>
+                <!--  #nombre="ngModel" es elnombre del input para angular-->
+                <!--  [(ngModel)] es un binding direccional que permite modificar automaticamente los datos en el componente -->
+                <small *ngIf="!nombre.valid && nombre.touched">
+                    El nombre no es valido
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="apellidos"> Apellidos</label>
+                <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="user.apellidos" required />
+                <small *ngIf="!apellidos.valid && apellidos.touched">
+                    Los apellidos no son validos
+                </small>
+            </div>
+            <div class="form-group">
+                <label for="bio"> Biografia</label>
+                <textarea name="bio" #bio="ngModel" [(ngModel)]="user.bio" required></textarea>
+                <small *ngIf="!bio.valid && bio.touched">
+                    La biografia no es valida
+                </small>
+            </div>
+            <div class="form-group radiobuttons">
+                <input type="radio" name="genero" value="hombre" #genero="ngModel" [(ngModel)]="user.genero" required /> Hombre
+                <input type="radio" name="genero" value="mujer"  #genero="ngModel" [(ngModel)]="user.genero" /> Mujer
+                <input type="radio" name="genero" value="otro"  #genero="ngModel" [(ngModel)]="user.genero" /> Otro
+                <small *ngIf="!genero.valid && genero.touched">
+                    El genero no es validoo
+                </small>
+            </div>
+            <div class="clearfix"></div>
+            <input type="submit" value="Enviar" class="btn btn-success" [disabled]="userForm.invalid" />
+            
+        </form>
+        <h2 class="subheader">
+            Eventos
+        </h2>
+        <button (click)="hasdadoclick()"> Dar click</button>
+        <input type="text" [(ngModel)]="campo" (keyup.enter)="hassalido()"/>   <!-- blur detecta cuando salgo de un campo-->
+        {{campo}}
+    </section>
+    <app-sidebar></app-sidebar>
+</div>

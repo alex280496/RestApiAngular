@@ -10,6 +10,7 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
   public titulo:string;
   public peliculas:Pelicula[]; // la variable pelicula puedo utilizaral en la vista
   public favorita:Pelicula;
+  public fecha: any;
   constructor() {
                    //nose debe meter logica dentro del constructor
                   // para asignar valores a las proiedades de las clases 
@@ -21,7 +22,9 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
       new Pelicula("Dragon Ball",2019,"https://media.metrolatam.com/2019/06/06/1501972698dragon-e1caecd2afcb1e6afd0a7c6881c49428-600x400.jpg"),
     // estamos utilizano la clase pelicula para utilizar un objeto de ese tipo
     ];
+    this.fecha=new Date(2020,3,26); //para crear fechas en javascript
    }
+
 
   ngOnInit() { //aquie si se puede meter funcionalidad
     console.log('On init iniciado');
