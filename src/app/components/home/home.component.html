@@ -6,6 +6,9 @@
 <div class="center">
     <section id="content">
         <h2 class="subheader">{{titulo}}</h2>
+        <app-articles
+        [articles]="articles" 
+        ></app-articles> <!-- articles es la variable que viene del componente-->
     </section>
     <app-sidebar></app-sidebar>
 </div>

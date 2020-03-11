@@ -19,9 +19,9 @@ export class BlogComponent implements OnInit {
 
   ngOnInit() {
     this._articleService.getArticulos().subscribe( // subscribe sirve para recoger los datos que me devuelve la petecion http
-      response=>{ // ep response trae dos propiedades que son el response y el article
+      response=>{ // el response trae dos propiedades que son el response y el article
         //console.log(response);
-        if(response.articles){
+        if(response.articles){ // articles es la variable del bakcend 
           this.articles=response.articles;
         }else{
 
