@@ -39,5 +39,16 @@ export class ArticleComponent implements OnInit {
       );   //llamo al servicio
     });
   }
+  delete(id){
+    this._articleService.delete(id).subscribe(
+      response=>{
+        this._router.navigate(['/blog']);
+      },
+      error=>{
+        console.log(error);
+        this._router.navigate(['/blog']);
+      }
+    );
+  }
 
 }
