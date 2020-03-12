@@ -3,6 +3,7 @@ import { Article } from '../../models/article';
 import { Router, ActivatedRoute, Params } from '@angular/router'; //paraque funcione la redireccion
 import { ArticleService } from '../../services/article.service';
 import { Global } from '../../services/global';
+import swal from 'sweetalert';
 @Component({
   selector: 'app-article-new',
   templateUrl: './article-new.component.html',
@@ -55,6 +56,12 @@ public page_title:string;
           this.status = 'success';
           this.article = response.article;
           console.log(response);
+          //mostrar altertas con sweet alert
+          swal(
+            'Articulo creado !!!!',
+            'El articulo se ha creado correctamente',
+            'success'
+          );
           this._router.navigate(['/blog']);
         } else {
           this.status = 'error';

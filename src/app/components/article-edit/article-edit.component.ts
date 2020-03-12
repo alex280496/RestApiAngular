@@ -3,7 +3,7 @@ import {Router,ActivatedRoute,Params} from '@angular/router';
 import {ArticleService} from '../../services/article.service';
 import {Article} from '../../models/article';
 import {Global} from '../../services/global';
-
+import swal from 'sweetalert';
 @Component({
   selector: 'app-article-edit',
   templateUrl: '../article-new/article-new.component.html',
@@ -61,6 +61,11 @@ export class ArticleEditComponent implements OnInit {
           this.status = 'success';
           this.article = response.article;
           console.log(response);
+          swal(
+            'Articulo editado',
+            'El articulo se ha editado correctamente',
+            'success'
+          );
           this._router.navigate(['/blog/articulo',this.article._id]); // para redirigir ala visat de elimianr y editar articulo
         } else {
           this.status = 'error';
@@ -69,6 +74,11 @@ export class ArticleEditComponent implements OnInit {
       },
       error => {
         this.status = 'error';
+        swal(
+          'Edicion fallida',
+          'El articulo no se ha editado',
+          'error'
+        );
       }
     );
   }
