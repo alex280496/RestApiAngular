@@ -42,7 +42,7 @@ export class ArticleComponent implements OnInit {
   }
   delete(id) {
     swal({
-      title: "Are you sure?",
+      title: "Esta seguro que desea elimianr?",
       text: "Once deleted, you will not be able to recover this imaginary file!",
       icon: "warning",
       buttons: [true,true], //para eliminar el erroe qeu sale en la consola por sweet alert
